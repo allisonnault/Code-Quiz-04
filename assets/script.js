@@ -22,7 +22,7 @@ startQuiz.addEventListener("click", function() {
 // ask 1st question
 promtEl.textContent = "How would you access an HTML element by a specified classname?";
 // add multiple choice
-quizQuestions.appendChild(li1)
+quizQuestions.appendChild(li1);
 li1.textContent = "laksdj;flakj";
 
     }
