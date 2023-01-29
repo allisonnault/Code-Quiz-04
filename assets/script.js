@@ -1,29 +1,24 @@
-// start quiz button
+var card1 = document.querySelector(".one");
+var card2 = document.querySelector(".two");
+var card3 = document.querySelector(".three");
+var card4 = document.querySelector(".four");
+var card5 = document.querySelector(".five");
+
+function loadQuiz() {
+    card1.setAttribute("class", "visible");
+}
+
 var startQuiz = document.querySelector("#start");
-
-// define HTML elements
-var promtEl = document.getElementById("promt")
-
-var quizQuestions = document.getElementsByClassName("quiz-questions")
-
-var buttonEl = document.getElementsByClassName("card-footer")
-
-// add list elements
-var li1 = document.createElement("li");
-var li2 = document.createElement("li");
-var li3 = document.createElement("li");
-var li4 = document.createElement("li");
-
 // add event listener to start quiz
 startQuiz.addEventListener("click", function() {
     if(startQuiz) {
 // set timer
     setTime ();
-// ask 1st question
-promtEl.textContent = "How would you access an HTML element by a specified classname?";
-// add multiple choice
-quizQuestions.appendChild(li1);
-li1.textContent = "laksdj;flakj";
+
+    card1.removeAttribute("class", "visible");
+    card1.setAttribute("class", "card");
+    card2.setAttribute("class", "visible");
+
 
     }
 })
@@ -45,4 +40,3 @@ function setTime() {
     }
   }, 1000);
 }
-
