@@ -18,7 +18,7 @@ startQuiz.addEventListener("click", function() {
     card1.removeAttribute("class", "visible");
     card1.setAttribute("class", "card");
     card2.setAttribute("class", "visible");
-
+// add carousel function to switch cards
 
     }
 })
@@ -40,3 +40,37 @@ function setTime() {
     }
   }, 1000);
 }
+
+var next = document.querySelector(".next");
+var prev = document.querySelector(".prev");
+var index = 0;
+var currentCard;
+var cards = document.querySelectorAll(".card");
+
+function navigate(direction) {
+    index = index + direction;
+    if (index < 0) { 
+      index = cards.length - 1; 
+    } else if (index > cards.length - 1) { 
+      index = 0;
+    }
+    currentCard = cards[index];
+    if (currentCard) {
+        setAttribute("class", "visible");    
+    } else {
+        removeAttribute("class", "visible");
+        setAttribute("class", "card");
+    }
+  }
+  
+  next.addEventListener("click", function(event) {
+    event.stopPropagation();
+    navigate(1);
+  });
+
+  prev.addEventListener("click", function(event) {
+  event.stopPropagation();
+  navigate(-1);
+});
+
+navigate(0);
