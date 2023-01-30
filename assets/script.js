@@ -53,7 +53,7 @@ function setTime() {
 
 function populateQuiz() {
     // questions
-    for (let i = 0; i < quizQuestions.length; i++) {
+    for (let i = 0; i < quizQuestions.length;) {
         var currentQuestion = quizQuestions[i];
 
         var h1 = document.createElement("h1");
@@ -61,7 +61,7 @@ function populateQuiz() {
         Question.appendChild(h1);
     }
     // choices
-    for (let i = 0; i < quizChoices.length; i++) {
+    for (let i = 0; i < quizChoices.length;) {
         var currentChoices = quizChoices[i];
         currentChoices.forEach((item) => {
             let li = document.createElement("li");
