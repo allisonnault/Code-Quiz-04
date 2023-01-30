@@ -21,6 +21,7 @@ function loadQuiz() {
 
 // add event listener to start quiz
 startQuiz.addEventListener("click", function () {
+    console.log("hello world");
     if (startQuiz) {
         // set timer
         setTime();
@@ -55,18 +56,19 @@ function populateQuiz() {
     // questions
     for (let i = 0; i < quizQuestions.length;) {
         var currentQuestion = quizQuestions[i];
+        console.log(currentQuestion);
 
         var h1 = document.createElement("h1");
         h1.textContent = currentQuestion;
         Question.appendChild(h1);
     }
     // choices
-    for (let i = 0; i < quizChoices.length;) {
-        var currentChoices = quizChoices[i];
-        currentChoices.forEach((item) => {
-            let li = document.createElement("li");
-            li.textContent = item;
-            choiceList.appendChild(li);
-        });
-    }
+    // for (let i = 0; i < quizChoices.length;) {
+    //     var currentChoices = quizChoices[i];
+    //     currentChoices.forEach((item) => {
+    //         let li = document.createElement("li");
+    //         li.textContent = item;
+    //         choiceList.appendChild(li);
+    //     });
+    // }
 }
