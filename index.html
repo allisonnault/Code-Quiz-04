@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./assets/CSS/reset.css">
+    <link rel="stylesheet" href="./assets/CSS/style.css">
     <title>Code Quiz</title>
 </head>
 
 <body onload="loadQuiz()">
-    <div class="start one">
+    <div class="card start">
         <header>
             <h1 class="prompt">Coding Quiz Challenge</h1>
             <p>try to answer the following questions whithin time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
@@ -18,125 +19,17 @@
             <button id="start" class="btn">Start Quiz</button>
         </div>
     </div>
-    <div class="card two">
+    <div class="card question">
         <header>
-            <h1>How would you access an HTML element by a specified classname?</h1>
+            <h1 id="question"></h1>
         </header>
-        <section>
-            <ol>
-                <li>
-                    <button class="btn">getElementByClass</button>
-                </li>
-                <li>
-                    <button class="btn">getElementById</button>
-                </li>
-                <li>
-                    <button class="btn">getElementbyTagName</button>
-                </li>
-                <li>
-                    <button class="btn">querySelector</button>
-                </li>
-            </ol>
+        <section id="choices">
+            <button id="A"></button><br>
+            <button id="B"></button><br>
+            <button id="C"></button><br>
+            <button id="D"></button>
         </section>
-        <div>
-            <button class="prev btn">
-                ◀ Previous
-              </button>
-              <button class="next btn">
-                Next ▶ 
-              </button>
-        </div>
-
     </div>
-    <div class="card three">
-        <header>
-            <h1>What type of brakets identify an object?</h1>
-        </header>
-        <section>
-            <ol>
-                <li>
-                    <button  class="btn"> " " </button>
-                </li>
-                <li>
-                    <button  class="btn"> ( ) </button>
-                </li>
-                <li>
-                    <button class="btn"> { } </button>
-                </li>
-                <li>
-                    <button  class="btn" > [ ] </button>
-                </li>
-            </ol>
-        </section>
-        <div>
-            <button class="prev">
-                ◀ Previous
-              </button>
-              <button class="next">
-                Next ▶ 
-              </button>
-        </div>
-
-    </div>
-    <div class="card four">
-        <header>
-            <h1></h1>
-        </header>
-        <section>
-            <ol>
-                <li>
-                    <button class="btn"></button>
-                </li>
-                <li>
-                    <button class="btn"></button>
-                </li>
-                <li>
-                    <button class="btn"></button>
-                </li>
-                <li>
-                    <button class="btn"></button>
-                </li>
-            </ol>
-        </section>
-        <div>
-            <button class="prev">
-                ◀ Previous
-              </button>
-              <button class="next">
-                Next ▶ 
-              </button>
-        </div>
-
-    </div>
-    <div class="card five">
-        <header>
-            <h1></h1>
-        </header>
-        <section>
-            <ol>
-                <li>
-                    <button class="btn"></button>
-                </li>
-                <li>
-                    <button class="btn"></button>
-                </li>
-                <li>
-                    <button class="btn"></button>
-                </li>
-                <li>
-                    <button class="btn"></button>
-                </li>
-            </ol>
-        </section>
-        <div>
-            <button class="prev">
-                ◀ Previous
-              </button>
-              <button class="next">
-                Next ▶ 
-              </button>
-        </div>
-    </div>
-<script src="./script.js"></script> 
+<script src="./assets/script.js"></script> 
 </body>
 </html>
