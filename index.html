@@ -10,6 +10,9 @@
 </head>
 
 <body onload="loadQuiz()">
+<header>
+    <span id="timer">100</span> seconds remaining
+</header>
     <div class="card start">
         <header>
             <h1 class="prompt">Coding Quiz Challenge</h1>
@@ -20,14 +23,12 @@
         </div>
     </div>
     <div class="card question">
-        <header>
-            <h1 id="question"></h1>
+        <header id="question">
+        
         </header>
-        <section id="choices">
-            <button id="A"></button><br>
-            <button id="B"></button><br>
-            <button id="C"></button><br>
-            <button id="D"></button>
+        <section>
+            <ol id="choices"></ol>
+            
         </section>
     </div>
 <script src="./assets/script.js"></script> 
