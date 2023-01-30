@@ -4,14 +4,27 @@ var Question = document.querySelector("#question");
 var timerSpan = document.querySelector("#timer");
 var choiceList = document.querySelector("#choices");
 var startQuiz = document.querySelector("#start");
+var questionIndex = 0
 
-var quizQuestions = ["How would you access an HTML element by a specified classname?", "Which is NOT a data type in Javascript", "What symbol(s) would you use to express strict equalitiy?"];
 
-var choice1 = ["getElementByClass", "getElementById", "getElementbyTagName", "querySelector"];
-var choice2 = ["Array", "unction", "Boolean", "Object"];
-var choice3 = [" !== ", " == ", " => ", " === "];
+var questionList = [
+    {
+        question: "How would you access an HTML element by a specified classname?",
+        choices: ["getElementByClass", "getElementById", "getElementbyTagName", "querySelector"],
+        correct: "getElementByClass"
+    },
+    {
+        question: "Which is NOT a data type in Javascript?",
+        choices: ["Array", "Function", "Boolean", "Object"],
+        correct: "Function"
+    },
+    {
+        question: "What symbol(s) would you use to express strict equalitiy?",
+        choices: [" !== ", " == ", " => ", " === "],
+        correct: " === "
+    }
 
-var quizChoices = [choice1, choice2, choice3];
+]
 
 
 // when the page loads, only card 1 will be visible
@@ -52,23 +65,23 @@ function setTime() {
     }, 1000);
 }
 
-function populateQuiz() {
-    // questions
-    for (let i = 0; i < quizQuestions.length;) {
-        var currentQuestion = quizQuestions[i];
-        console.log(currentQuestion);
 
-        var h1 = document.createElement("h1");
-        h1.textContent = currentQuestion;
-        Question.appendChild(h1);
-    }
-    // choices
-    // for (let i = 0; i < quizChoices.length;) {
-    //     var currentChoices = quizChoices[i];
-    //     currentChoices.forEach((item) => {
-    //         let li = document.createElement("li");
-    //         li.textContent = item;
-    //         choiceList.appendChild(li);
-    //     });
-    // }
+function populateQuiz() {
+    var currentObject = questionList[questionIndex];
+    var currentQuestion = currentObject.question;
+
+    Question.textContent = currentQuestion;
+
+    choiceList.innerHTML = " ";
+    for (let i = 0; i < currentObject.choices.length; i++) {
+        let btn = document.createElement("button");
+        btn.textContent = currentObject.choices[i];
+        choiceList.appendChild(btn);
+    };
 }
+
+function nextQuestion() {
+    questionIndex++;
+    populateQuiz();
+}
+
