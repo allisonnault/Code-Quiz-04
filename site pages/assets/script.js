@@ -105,15 +105,14 @@ choiceList.addEventListener("click", function (event) {
     if (element.innerHTML === currentObject.correct) {
         spanMessage.textContent = "Correct!";
         score = score + 5;
-        nextQuestion();
+        setTimeout(() => {nextQuestion();}, 1000);
     } else {
         spanMessage.textContent = "Incorrect!";
        secondsLeft = secondsLeft-10;
        if (secondsLeft < 0) {
         secondsLeft = 0
-       } nextQuestion();
+       }  setTimeout(() => {nextQuestion();}, 1000);
     }
-
 })
 
 //  TO DO:
@@ -123,13 +122,10 @@ choiceList.addEventListener("click", function (event) {
 // submit scores and initials
 var submitBtn = document.querySelector("#submit")
 var initialsInput = document.querySelector("#initials");
+var initials = initialsInput.value;
 
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
-    console.log("working");
-
-    var initials = initialsInput.value;
-    
     if (initials === "") {
         alert("Initials cannot be empty");
         // tried displayMessage, but that wasn't working
