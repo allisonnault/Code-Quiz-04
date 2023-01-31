@@ -52,7 +52,7 @@ function setTime() {
     // Sets interval in variable
     var timerInterval = setInterval(function () {
         secondsLeft--;
-        timerSpan.textContent = secondsLeft;
+        timerSpan.textContent = secondsLeft + " seconds left";
 
         if (secondsLeft === 0 || questionIndex > questionList.length) {
             // doesn't seem to be working. maybe create a function to end the quiz?

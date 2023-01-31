@@ -2,8 +2,8 @@
 :root {
     --green: #4f6c61;
     --dark: #273624;
-    --background: #fffcf5;
-    --accent: #f4f3ee;
+    --background: #fcfcfa;
+    --accent: #e8e7e1;
 }
 
 * {
@@ -14,7 +14,17 @@ body {
     padding-left: 20px;
     padding-right: 20px;
 }
-
+body>header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+   
+}
+nav a {
+    color: var(--green);
+    text-decoration: none;
+    padding-right: 15px;
+}
 header p {
     margin-left: 30px;
 }
@@ -38,7 +48,12 @@ button {
       padding: 5px 8px;
       margin-top: 5px;
     }
-#start {
+
+button:hover {
+    box-shadow: 2px 2px 5px var(--green);
+}
+
+#start, #submit {
     margin: 30px;
 }
     ol {
@@ -47,4 +62,5 @@ button {
 
 h1 {
     margin: 15px;
+    font-size: 25px;
 }
