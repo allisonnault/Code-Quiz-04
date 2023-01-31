@@ -88,7 +88,7 @@ choiceList.addEventListener("click", function (event) {
     if (element.matches("button") === true)
         console.log(event);
     
-    if (event.target.innerHTML === currentObject.correct) {
+    if (element.innerHTML === currentObject.correct) {
         spanMessage.textContent = "Correct!";
         console.log("Correct!");
         nextQuestion();
@@ -102,6 +102,6 @@ choiceList.addEventListener("click", function (event) {
 // else secondsLeft-10
 
 // end game
-    // time runs out - score = 0
+    // time runs out : score = 0
     // questionIndex > questiomList.lenght
-        // stop time - score = secondsLeft
+        // stop time : score = secondsLeft
