@@ -4,10 +4,11 @@ var card3 = document.querySelector("#three")
 var Question = document.querySelector("#question");
 var timerSpan = document.querySelector("#timer");
 var choiceList = document.querySelector("#choices");
-var startQuiz = document.querySelector("#start");
+var startBtn = document.querySelector("#start");
 var spanMessage = document.querySelector("#message");
+
 var questionIndex = 0
-var secondsLeft = 30;
+var secondsLeft = 5;
 var questionList = [
     {
         question: "How would you access an HTML element by a specified classname?",
@@ -34,9 +35,9 @@ function loadQuiz() {
 }
 
 // add event listener to start quiz
-startQuiz.addEventListener("click", function () {
+startBtn.addEventListener("click", function () {
     console.log("hello world");
-    if (startQuiz) {
+    if (startBtn) {
         // set timer
         setTime();
 
@@ -54,13 +55,13 @@ function setTime() {
         secondsLeft--;
         timerSpan.textContent = secondsLeft + " seconds left";
 
-        if (secondsLeft === 0 || questionIndex > questionList.length) {
-            // doesn't seem to be working. maybe create a function to end the quiz?
+        if (secondsLeft === 0) {
             // Stops execution of action at set interval
             clearInterval(timerInterval);
             card2.removeAttribute("class", "visible");
             card2.setAttribute("class", "hidden");
             card3.setAttribute("class", "visible");
+
         }
     }, 1000);
 }
@@ -85,7 +86,7 @@ function nextQuestion() {
     populateQuiz();
 }
 
-// add event listen to choices
+// add event listener to choices
 choiceList.addEventListener("click", function (event) {
     var element = event.target;
     if (element.matches("button") === true)
@@ -106,4 +107,26 @@ choiceList.addEventListener("click", function (event) {
 //  TO DO:
 // figure out how to deduct 10 seconds from time for wrong answer
 // set up data storage for quiz scores
-// create seperate score cade page to display results
+
+// submit scores and initials
+var submitBtn = document.querySelector("#submit")
+var initialsInput = document.querySelector("#initials");
+
+submitBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log("working");
+
+    var initials = initialsInput.value;
+    var score = secondsLeft;
+    if (initials === "") {
+        // displayMessage isn't working
+        displayMessage("error", "Initials cannot be blank");
+    }
+
+    localStorage.setItem("initials", initials);
+    localStorage.setItem("score", score);
+});
+
+
+// To end quiz:
+// if time runs out, or questionIndex > questionList.lenght

@@ -12,11 +12,11 @@
 
 <body onload="loadQuiz()">
     <header>
+        <span id="timer"></span>
         <nav>
             <a href="./index.html">Code Quiz</a>
             <a href="./highscore.html">High Scores</a>
         </nav>
-        <span id="timer"></span>
     </header>
     <div class="hidden" id="one">
         <header>
@@ -45,7 +45,7 @@
         <div>
             <form id="log-score">
                 <label for="initials">Enter Initials:</label>
-                <input type="text" placeholder="your initials">
+                <input type="text" name="initials" id="initials" placeholder="your initials">
                 <button id="submit">Submit</button>
             </form>
         </div>
