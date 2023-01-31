@@ -120,9 +120,11 @@ submitBtn.addEventListener("click", function (event) {
     var score = secondsLeft;
     if (initials === "") {
         alert("Initials cannot be empty");
+        // tried displayMessage, but that wasn't working
     } else {
         localStorage.setItem("initials", initials);
         localStorage.setItem("score", score);
+        window.location.href = "./highscore.html"
     }
 
 
