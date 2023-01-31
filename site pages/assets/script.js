@@ -122,10 +122,11 @@ choiceList.addEventListener("click", function (event) {
 // submit scores and initials
 var submitBtn = document.querySelector("#submit")
 var initialsInput = document.querySelector("#initials");
-var initials = initialsInput.value;
+
 
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
+    var initials = initialsInput.value;
     if (initials === "") {
         alert("Initials cannot be empty");
         // tried displayMessage, but that wasn't working
