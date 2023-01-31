@@ -120,7 +120,7 @@ submitBtn.addEventListener("click", function (event) {
     var score = secondsLeft;
     if (initials === "") {
         // displayMessage isn't working
-        displayMessage("error", "Initials cannot be blank");
+        // displayMessage("error", "Initials cannot be blank");
     }
 
     localStorage.setItem("initials", initials);
