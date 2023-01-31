@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,27 +11,42 @@
 </head>
 
 <body onload="loadQuiz()">
-<header>
-    <span id="timer">100</span> seconds remaining
-</header>
-    <div class="card start">
+    <header>
+        <span id="timer"></span> seconds remaining
+    </header>
+    <div class="hidden" id="one">
         <header>
             <h1 class="prompt">Coding Quiz Challenge</h1>
-            <p>try to answer the following questions whithin time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
+            <p>try to answer the following questions whithin time limit. Keep in mind that incorrect answers will
+                penalize your scoretime by ten seconds!</p>
         </header>
         <div>
             <button id="start" class="btn">Start Quiz</button>
         </div>
     </div>
-    <div class="card question">
+    <div class="hidden" id="two">
         <header>
-        <h1 id="question"></h1>
+            <h1 id="question"></h1>
         </header>
         <section>
             <ol id="choices"></ol>
         </section>
         <span id="message"></span>
     </div>
-<script src="./assets/script.js"></script> 
+    <div class="hidden" id="three">
+        <header>
+            <h1>All done!</h1>
+            <p id="score"></p>
+        </header>
+        <div>
+<form id="log-score">
+    <label for="initials">Enter Initials:</label>
+    <input type="text" placeholder="your initials">
+    <button id="submit">Submit</button>
+</form>
+        </div>
+    </div>
+    <script src="./assets/script.js"></script>
 </body>
+
 </html>

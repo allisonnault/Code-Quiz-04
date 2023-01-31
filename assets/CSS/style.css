@@ -18,14 +18,16 @@ body {
 header p {
     margin-left: 30px;
 }
-.card {
+.hidden {
     display: none;
 }
 
 .visable {
     display: block;
 }
-
+#two span {
+    border-top: var(--green) solid 2px;
+}
 button {
     border: none;
       background-color: var(--dark);

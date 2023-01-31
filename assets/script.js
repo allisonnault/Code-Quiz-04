@@ -1,12 +1,13 @@
-var card1 = document.querySelector(".start");
-var card2 = document.querySelector(".question");
+var card1 = document.querySelector("#one");
+var card2 = document.querySelector("#two");
+var card3 = document.querySelector("#three")
 var Question = document.querySelector("#question");
 var timerSpan = document.querySelector("#timer");
 var choiceList = document.querySelector("#choices");
 var startQuiz = document.querySelector("#start");
 var spanMessage = document.querySelector("#message");
 var questionIndex = 0
-var secondsLeft = 100;
+var secondsLeft = 30;
 var questionList = [
     {
         question: "How would you access an HTML element by a specified classname?",
@@ -40,7 +41,7 @@ startQuiz.addEventListener("click", function () {
         setTime();
 
         card1.removeAttribute("class", "visible");
-        card1.setAttribute("class", "card");
+        card1.setAttribute("class", "hidden");
         card2.setAttribute("class", "visible");
 
         populateQuiz();
@@ -53,18 +54,18 @@ function setTime() {
         secondsLeft--;
         timerSpan.textContent = secondsLeft;
 
-        if (secondsLeft === 0) {
+        if (secondsLeft === 0 || questionIndex > questionList.length) {
             // Stops execution of action at set interval
             clearInterval(timerInterval);
-            //   sendMessage();
-            // END QUIZ AND SHOW SCORE
-            // define below
+            card2.removeAttribute("class", "visible");
+            card2.setAttribute("class", "hidden");
+            card3.setAttribute("class", "visible");
         }
     }, 1000);
 }
 
 function populateQuiz() {
-    
+    currentObject = questionList[questionIndex];
     var currentQuestion = currentObject.question;
 
     Question.textContent = currentQuestion;
@@ -79,6 +80,7 @@ function populateQuiz() {
 
 function nextQuestion() {
     questionIndex++;
+    spanMessage.textContent = " ";
     populateQuiz();
 }
 
@@ -87,7 +89,7 @@ choiceList.addEventListener("click", function (event) {
     var element = event.target;
     if (element.matches("button") === true)
         console.log(event);
-    
+
     if (element.innerHTML === currentObject.correct) {
         spanMessage.textContent = "Correct!";
         console.log("Correct!");
@@ -95,9 +97,13 @@ choiceList.addEventListener("click", function (event) {
     } else {
         spanMessage.textContent = "Incorrect!";
         console.log("incorrect");
+        // secondsLeft-10;
     }
 
 })
+
+
+
 // if correct nextQuestion()
 // else secondsLeft-10
 
