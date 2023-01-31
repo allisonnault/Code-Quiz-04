@@ -4,9 +4,9 @@ var Question = document.querySelector("#question");
 var timerSpan = document.querySelector("#timer");
 var choiceList = document.querySelector("#choices");
 var startQuiz = document.querySelector("#start");
+var spanMessage = document.querySelector("#message");
 var questionIndex = 0
-
-
+var secondsLeft = 100;
 var questionList = [
     {
         question: "How would you access an HTML element by a specified classname?",
@@ -25,7 +25,7 @@ var questionList = [
     }
 
 ]
-
+var currentObject = questionList[questionIndex];
 
 // when the page loads, only card 1 will be visible
 function loadQuiz() {
@@ -47,8 +47,6 @@ startQuiz.addEventListener("click", function () {
     }
 })
 
-var secondsLeft = 100;
-
 function setTime() {
     // Sets interval in variable
     var timerInterval = setInterval(function () {
@@ -65,9 +63,8 @@ function setTime() {
     }, 1000);
 }
 
-
 function populateQuiz() {
-    var currentObject = questionList[questionIndex];
+    
     var currentQuestion = currentObject.question;
 
     Question.textContent = currentQuestion;
@@ -85,3 +82,26 @@ function nextQuestion() {
     populateQuiz();
 }
 
+// add event listen to choices
+choiceList.addEventListener("click", function (event) {
+    var element = event.target;
+    if (element.matches("button") === true)
+        console.log(event);
+    
+    if (event.target.innerHTML === currentObject.correct) {
+        spanMessage.textContent = "Correct!";
+        console.log("Correct!");
+        nextQuestion();
+    } else {
+        spanMessage.textContent = "Incorrect!";
+        console.log("incorrect");
+    }
+
+})
+// if correct nextQuestion()
+// else secondsLeft-10
+
+// end game
+    // time runs out - score = 0
+    // questionIndex > questiomList.lenght
+        // stop time - score = secondsLeft

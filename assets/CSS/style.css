@@ -14,6 +14,10 @@ body {
     padding-left: 20px;
     padding-right: 20px;
 }
+
+header p {
+    margin-left: 30px;
+}
 .card {
     display: none;
 }
@@ -27,8 +31,18 @@ button {
       background-color: var(--dark);
       border-radius: 15px;
       color: var(--accent);
-      display: inline-block;
+      display: block;
       text-align: center;
       padding: 5px 8px;
-      margin-top: 15px;
+      margin-top: 5px;
     }
+#start {
+    margin: 30px;
+}
+    ol {
+        margin: 30px;
+    }
+
+h1 {
+    margin: 15px;
+}
