@@ -13,8 +13,8 @@ function listScores() {
 }
 
 function init() {
-    var storedScores = localStorage.getItem("score");
-console.log(storedScores);
+ 
 }
 
 init();
+console.log(topScores);

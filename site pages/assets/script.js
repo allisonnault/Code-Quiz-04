@@ -126,13 +126,12 @@ var initialsInput = document.querySelector("#initials");
 
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
-    var initials = initialsInput.value;
+    var playerScore = [initialsInput.value, score];
     if (initials === "") {
         alert("Initials cannot be empty");
         // tried displayMessage, but that wasn't working
     } else {
-        localStorage.setItem("initials", initials);
-        localStorage.setItem("score", score);
+        localStorage.setItem("playerScore", JSON.stringify(playerScore));
         window.location.href = "./highscore.html"
     }
 });
