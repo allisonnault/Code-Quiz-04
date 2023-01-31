@@ -55,6 +55,7 @@ function setTime() {
         timerSpan.textContent = secondsLeft;
 
         if (secondsLeft === 0 || questionIndex > questionList.length) {
+            // doesn't seem to be working. maybe create a function to end the quiz?
             // Stops execution of action at set interval
             clearInterval(timerInterval);
             card2.removeAttribute("class", "visible");
@@ -102,12 +103,7 @@ choiceList.addEventListener("click", function (event) {
 
 })
 
-
-
-// if correct nextQuestion()
-// else secondsLeft-10
-
-// end game
-    // time runs out : score = 0
-    // questionIndex > questiomList.lenght
-        // stop time : score = secondsLeft
+//  TO DO:
+// figure out how to deduct 10 seconds from time for wrong answer
+// set up data storage for quiz scores
+// create seperate score cade page to display results
