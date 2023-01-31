@@ -119,12 +119,13 @@ submitBtn.addEventListener("click", function (event) {
     var initials = initialsInput.value;
     var score = secondsLeft;
     if (initials === "") {
-        // displayMessage isn't working
-        // displayMessage("error", "Initials cannot be blank");
+        alert("Initials cannot be empty");
+    } else {
+        localStorage.setItem("initials", initials);
+        localStorage.setItem("score", score);
     }
 
-    localStorage.setItem("initials", initials);
-    localStorage.setItem("score", score);
+
 });
 
 
