@@ -1,20 +1,23 @@
 var scoreCard = document.querySelector('#score-card')
-
 var topScores = [];
 
 function listScores() {
-    for (var i = 0; i < 5; i++) {
-        var scoreLi = topScore[i];
+    var storedScores = JSON.parse(localStorage.getItem("playerScore"));
+    console.log(storedScores.finalScore);
+    console.log(storedScores.player);
 
-        var li = document.createElement("li");
-        li.textContent = scoreLi;
-        scoreCard.appendChild(li);
-    }
+
+    // for (var i = 0; i < 5; i++) {
+
+    var li = document.createElement("li");
+    li.textContent = storedScores.player+" - "+storedScores.finalScore;
+    scoreCard.appendChild(li);
 }
 
+
 function init() {
- 
+listScores();   
 }
 
 init();
-console.log(topScores);
+// console.log(topScores);

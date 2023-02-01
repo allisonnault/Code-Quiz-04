@@ -123,15 +123,23 @@ choiceList.addEventListener("click", function (event) {
 var submitBtn = document.querySelector("#submit")
 var initialsInput = document.querySelector("#initials");
 
+function saveScore() {
+    var playerScore = {
+        player: initialsInput.value,
+        finalScore: score
+    };
+    localStorage.setItem("playerScore", JSON.stringify(playerScore));
+}
+
 
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
-    var playerScore = [initialsInput.value, score];
+    
     if (initials === "") {
         alert("Initials cannot be empty");
         // tried displayMessage, but that wasn't working
     } else {
-        localStorage.setItem("playerScore", JSON.stringify(playerScore));
+        saveScore();
         window.location.href = "./highscore.html"
     }
 });
