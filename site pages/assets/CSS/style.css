@@ -41,6 +41,8 @@ header p {
 }
 #two span {
     border-top: var(--green) solid 2px;
+    margin-left: 30px;
+    
 }
 button {
     border: none;
@@ -67,4 +69,21 @@ button:hover {
 h1 {
     margin: 15px;
     font-size: 25px;
+}
+
+ol {
+  width: 150px;
+  background-color: var(--accent);
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+li {
+    background-color: var(--background);
+    margin: 5px;
+    padding: 2px;
+    width: max;
+    border-radius: 4px;
+    text-align: center;
+    color: var(--dark);
 }
