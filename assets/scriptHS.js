@@ -5,10 +5,18 @@ function listScores() {
     storedScores.sort(function (a, b) { return b.finalScore - a.finalScore });
 
     if (storedScores !== []) {
-        for (var i = 0; i < 5; i++) {
-            var li = document.createElement("li");
-            li.textContent = storedScores[i].player.toUpperCase() + " - " + storedScores[i].finalScore;
-            scoreCard.appendChild(li);
+        if (storedScores.length > 5) {
+            for (var i = 0; i < 5; i++) {
+                var li = document.createElement("li");
+                li.textContent = storedScores[i].player.toUpperCase() + " - " + storedScores[i].finalScore;
+                scoreCard.appendChild(li);
+            }
+        } else {
+            for (var i = 0; i < storedScores.lenght; i++) {
+                var li = document.createElement("li");
+                li.textContent = storedScores[i].player.toUpperCase() + " - " + storedScores[i].finalScore;
+                scoreCard.appendChild(li);
+            }
         }
     }
 }
