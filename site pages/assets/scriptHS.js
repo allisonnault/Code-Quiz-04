@@ -1,21 +1,25 @@
 var scoreCard = document.querySelector('#score-card');
-var allScores = [];
 
 function listScores() {
     var storedScores = JSON.parse(localStorage.getItem("playerScore"));
-    allScores.push(storedScores);
+    storedScores.sort(function (a, b) { return b.finalScore - a.finalScore });
+
     if (storedScores !== []) {
-        for (var i = 0; i < storedScores.length; i++) {
+        for (var i = 0; i < 5; i++) {
             var li = document.createElement("li");
-            li.textContent = storedScores[i].player + " - " + storedScores[i].finalScore;
+            li.textContent = storedScores[i].player.toUpperCase() + " - " + storedScores[i].finalScore;
             scoreCard.appendChild(li);
         }
     }
 }
+
+
 
 function init() {
     listScores();
 }
 
 init();
-console.log(allScores);
+
+
+
