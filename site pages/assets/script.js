@@ -9,7 +9,7 @@ var spanMessage = document.querySelector("#message");
 var score = 0;
 var timeLeft = 0;
 var questionIndex = 0;
-var secondsLeft = 15;
+var secondsLeft = 60;
 var questionList = [
     {
         question: "How would you access an HTML element by a specified classname?",
@@ -25,6 +25,21 @@ var questionList = [
         question: "What symbol(s) would you use to express strict equalitiy?",
         choices: [" !== ", " == ", " => ", " === "],
         correct: " === "
+    },
+    {
+        question: "String values must be enclosed withing _____ when being assigned to variables.",
+        choices: ["commas", "curly brackets", "quotes", "parentheses"],
+        correct: "quotes"
+    },
+    {
+        question: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        correct: "alerts"
+    },
+    {
+        question: "What can be stored in an array in Javascript",
+        choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+        correct: "all of the above"
     }
 
 ]
@@ -124,13 +139,14 @@ choiceList.addEventListener("click", function (event) {
 // submit scores and initials
 var submitBtn = document.querySelector("#submit")
 var initialsInput = document.querySelector("#initials");
-
+var topScoreList = JSON.parse(localStorage.getItem('playerScore'))||[];
 function saveScore() {
     var playerScore = {
         player: initialsInput.value,
         finalScore: score+timeLeft,
     };
-    localStorage.setItem("playerScore", JSON.stringify(playerScore));
+topScoreList.push(playerScore)
+    localStorage.setItem("playerScore", JSON.stringify(topScoreList));
 }
 
 

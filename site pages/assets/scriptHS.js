@@ -1,14 +1,13 @@
-var scoreCard = document.querySelector('#score-card')
+var scoreCard = document.querySelector('#score-card');
 var allScores = [];
 
 function listScores() {
     var storedScores = JSON.parse(localStorage.getItem("playerScore"));
     allScores.push(storedScores);
-    console.log(allScores[0].player);
-    if (allScores !== []) {
-        for (var i = 0; i < 5; i++) {
+    if (storedScores !== []) {
+        for (var i = 0; i < storedScores.length; i++) {
             var li = document.createElement("li");
-            li.textContent = allScores[i].player + " - " + allScores[i].finalScore;
+            li.textContent = storedScores[i].player + " - " + storedScores[i].finalScore;
             scoreCard.appendChild(li);
         }
     }
@@ -19,4 +18,4 @@ function init() {
 }
 
 init();
-
+console.log(allScores);
