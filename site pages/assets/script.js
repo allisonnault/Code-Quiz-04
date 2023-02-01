@@ -7,6 +7,7 @@ var choiceList = document.querySelector("#choices");
 var startBtn = document.querySelector("#start");
 var spanMessage = document.querySelector("#message");
 var score = 0;
+var timeLeft = 0;
 var questionIndex = 0;
 var secondsLeft = 15;
 var questionList = [
@@ -58,13 +59,13 @@ function setTime() {
         if (secondsLeft <= 0) {
             // Stops execution of action at set interval
             secondsLeft = 0;
+            timerSpan.textContent = " ";
             clearInterval(timerInterval);
             card2.removeAttribute("class", "visible");
             card2.setAttribute("class", "hidden");
             card3.setAttribute("class", "visible");
 
         }
-        console.log(questionIndex);
     }, 1000);
 }
 
@@ -85,10 +86,12 @@ function populateQuiz() {
 function nextQuestion() {
     questionIndex++;
     if (questionIndex === questionList.length) {
+        timeLeft =  secondsLeft;
         secondsLeft = 0;
         card2.removeAttribute("class", "visible");
         card2.setAttribute("class", "hidden");
         card3.setAttribute("class", "visible");
+        console.log(timeLeft);
 
     } else {
         spanMessage.textContent = " ";
@@ -99,9 +102,8 @@ function nextQuestion() {
 // add event listener to choices
 choiceList.addEventListener("click", function (event) {
     var element = event.target;
-    if (element.matches("button") === true)
-        console.log(event);
-
+    if (element.matches("button") === true);
+        
     if (element.innerHTML === currentObject.correct) {
         spanMessage.textContent = "Correct!";
         score = score + 5;
@@ -126,7 +128,7 @@ var initialsInput = document.querySelector("#initials");
 function saveScore() {
     var playerScore = {
         player: initialsInput.value,
-        finalScore: score
+        finalScore: score+timeLeft,
     };
     localStorage.setItem("playerScore", JSON.stringify(playerScore));
 }
