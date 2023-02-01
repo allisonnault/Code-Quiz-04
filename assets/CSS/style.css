@@ -71,7 +71,7 @@ h1 {
     font-size: 25px;
 }
 
-ol {
+.scores ol {
   width: 150px;
   background-color: var(--accent);
   padding-top: 2px;
